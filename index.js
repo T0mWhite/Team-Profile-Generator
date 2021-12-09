@@ -3,6 +3,8 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const generateHTML = require("./Assets/utilities/generateHTML");
 const employeeGenerator = require("./Assets/utilities/generateEmployee");
+const Manager = require("./lib/Manager");
+const { mainModule } = require("process");
 
 let employeeArray = [];
 
@@ -46,18 +48,11 @@ const managerQuestions = [
   },
 ];
 
-// Function call asking if the user would like to generate a team page
-
 // Function to create a team manager
-async function generateManager() {
+async function generateManagerInfo() {
   await inquirer.prompt(managerQuestions).then((managerAnswers) => {
     console.log(managerAnswers.managerName);
-    // const filename = `index.html`;
-    // fs.promises.writeFile(filename, generateHTML(), (err) =>
-    //   err ? console.error(err) : console.log("index.html created!")
-    // );
-
-    // generateHTML();
+    generateManagerCard(managerAnswers);
   });
 }
 
@@ -71,8 +66,29 @@ async function generateTeamPage() {
       err ? console.error(err) : console.log("Finally..."))
     })
   console.log("We're out!");
-  generateManager();
+  generateManagerInfo();
   };
 
 // Called on load
 generateTeamPage();
+
+
+// Generates manager object, pushes into employee array, creates card from object.
+let generateManagerCard = (managerAnswers) => {
+console.log("Generating manager object.");
+  const ManagerObject = {
+    managerName,
+    managerID,
+    managerEmail,
+    managerOfficeNumber,
+  } = managerAnswers;
+
+  employeeArray.push(ManagerObject)
+
+const cardEl = document.createElement("div");
+main.appendChild(cardEl);
+cardEl.textContent = managerCard;
+
+return managerCard;
+
+};

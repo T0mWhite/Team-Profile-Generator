@@ -1,4 +1,4 @@
-function generateHTML(managerCard) {
+function generateHTML() {
   console.log("We generate!");
 
   return `<!DOCTYPE html>
@@ -10,33 +10,15 @@ function generateHTML(managerCard) {
     <title>Document</title>
 </head>
 <body>
-${managerCard}
-    <script src="./Assets/scripts/index.js" type="text.javascript"></script>
+<main>
+
+</main>
+    <script src="./index.js" type="text.javascript"></script>
 </body>
 </html>`;
 }
 
-let generateManager = (managerAnswers) => {
 
-  const ManagerObject = {
-    managerName,
-    managerID,
-    managerEmail,
-    managerOfficeNumber,
-  } = managerAnswers;
-
-  let managerCard = `<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">${managerName}</h5>
-    <p class="card-text">${managerID}, ${managerEmail}</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>`
-
-return managerCard;
-
-};
 // let generateEngineer = (engineerAnswers) => {
 
 //   const EngineerObject = {
@@ -65,7 +47,6 @@ return managerCard;
 
 // // managerAnswers, engineerAnswers, InternAnswers
 
-module.exports = generateManager;
 // module.exports = generateEngineer;
 // module.exports = generateIntern;
 module.exports = generateHTML;
