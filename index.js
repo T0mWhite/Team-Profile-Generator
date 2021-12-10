@@ -1,18 +1,13 @@
 // Including packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
-const employeeFunctions = require("./Assets/utilities/generateEmployee");
 
-// const generateManager = require("./Assets/utilities/generateEmployee");
-// const generateEngineer = require("./Assets/utilities/generateEmployee");
-// const generateIntern = require("./Assets/utilities/generateEmployee");
-
-// const employeeArray = [];
-
-// const generateManager = require("./Assets/utilities/generateEmployee");
-// const generateHTML = require("./Assets/utilities/generateHTML");
-// const employeeGenerator = require("./Assets/utilities/generateEmployee");
-// const Manager = require("./lib/Manager");
+// Importing functions from other modules
+const employeeFuncs = require("./Assets/utilities/generateEmployee");
+const generateManager = employeeFuncs.generateManager;
+const generateEngineer = employeeFuncs.generateEngineer;
+const generateIntern = employeeFuncs.generateIntern;
+const generateHTML = employeeFuncs.generateHTML;
 
 // Create a starting question to prompt the user if they would like to use the application
 const generateInit = {
@@ -139,12 +134,6 @@ generateTeamPage();
 function generateTeamPage() {
   inquirer.prompt(generateInit).then((initAnswers) => {
     console.log(initAnswers.initChoice);
-    // const filename = `index.html`;
-    // console.log("We're in");
-    //   fs.promises.writeFile(filename, generateHTML(), err =>
-    //   err ? console.error(err) : console.log("Finally..."))
-    // })
-    // console.log("We're out!");
     if (initAnswers.initChoice === "End") {
       process.exit();
     }
@@ -154,7 +143,7 @@ function generateTeamPage() {
 
 // Function to create a team manager
 function generateManagerInfo() {
- inquirer.prompt(managerQuestions).then((managerAnswers) => {
+  inquirer.prompt(managerQuestions).then((managerAnswers) => {
     // Sends the answers to be processed into HTML
     generateManager(managerAnswers);
     // Generates more employees
@@ -170,15 +159,10 @@ async function addNewEmployee() {
     if (addEmployeeAnswer.addEmployeeType === "Yes") {
       generateEmployeeInfo();
     } else {
-      const filename = `index.html`;
-      console.log("We're in");
-      fs.promises.writeFile(filename, generateHTML(), (err) =>
-        err ? console.error(err) : console.log("Finally...")
-      );
+      generateHTML();
     }
   });
 }
-// process.exit();
 
 // Function asking which type of employee is being added
 function generateEmployeeInfo() {
@@ -210,35 +194,3 @@ function generateInternInfo() {
     addNewEmployee();
   });
 }
-
-
-
-
-// Function to generate HTML div for an engineer
-// let generateManager = (managerAnswers) => {
-//   console.log("Generating manager object.");
-//   const {
-//     managerName,
-//     managerId,
-//     managerEmail,
-//     managerOfficeNumber,
-//   } = managerAnswers;
-
-//   let managerCard = `<div class="card" style="width: 18rem;">
-//     <img src="..." class="card-img-top" alt="...">
-//     <div class="card-body">
-//       <h5 class="card-title">Manager</h5>
-//       <h3 class="card-title">${managerName}</h3>
-//       <p class="card-text">Employee ID: ${managerId}
-//       Email: ${managerEmail}
-//       Office: ${managerOfficeNumber}</p>
-//       <a href="#" class="btn btn-primary">Go somewhere</a>
-//     </div>
-//     </div>`;
-
-//   employeeArray.push(managerCard);
-//   console.log(employeeArray);
-
-
-//   return employeeArray;
-// };
