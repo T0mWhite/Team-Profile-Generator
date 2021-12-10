@@ -13,40 +13,8 @@ function generateHTML() {
 <main>
 
 </main>
-    <script src="./index.js" type="text.javascript"></script>
+    <script src="/index.js" type="text.javascript"></script>
 </body>
 </html>`;
 }
-
-
-// let generateEngineer = (engineerAnswers) => {
-
-//   const EngineerObject = {
-//     managerName,
-//     managerID,
-//     managerEmail,
-//     managerOfficeNumber,
-//   } = managerAnswers;
-
-// };
-
-// let generateIntern = (internAnswers) => {
-
-//   const InternObject = {
-//     managerName,
-//     managerID,
-//     managerEmail,
-//     managerOfficeNumber,
-//   } = managerAnswers;
-
-// };
-
-
-//   generateHTML();
-// };
-
-// // managerAnswers, engineerAnswers, InternAnswers
-
-// module.exports = generateEngineer;
-// module.exports = generateIntern;
 module.exports = generateHTML;
