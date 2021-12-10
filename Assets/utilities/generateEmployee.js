@@ -9,22 +9,19 @@ let generateManager = (managerAnswers) => {
     managerAnswers;
 
   let managerCard = `<div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">Manager</h5>
+      <h5 class="card-title bgred">Manager</h5>
       <h3 class="card-title">${managerName}</h3>
       <p class="card-text">
       Employee ID: ${managerId}
       <br>
-      Email: ${managerEmail}
+      Email: <a href="mailto:${managerEmail}">${managerEmail}</a>  
       <br>
       Office: ${managerOfficeNumber}</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
     </div>`;
 
   employeeArray.push(managerCard);
-  console.log(employeeArray);
 
   return employeeArray;
 };
@@ -36,22 +33,21 @@ let generateEngineer = (engineerAnswers) => {
     engineerAnswers;
 
   let engineerCard = `<div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">Engineer</h5>
+      <h5 class="card-title bgblue">Engineer</h5>
       <h3 class="card-title">${engineerName}</h3>
       <p class="card-text">
       Employee ID: ${engineerId}
       <br>
-      Email: ${engineerEmail}
+      Email: <a href="mailto:${engineerEmail}">${engineerEmail}</a> 
       <br>
-      Github: github.com/${engineerGithub}</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      Github: 
+      <a href="github.com/${engineerGithub}">github.com/${engineerGithub}</a>
+      </p>
     </div>
     </div>`;
 
   employeeArray.push(engineerCard);
-  console.log(employeeArray);
 
   return employeeArray;
 };
@@ -62,22 +58,19 @@ let generateIntern = (internAnswers) => {
   const { internName, internId, internEmail, internSchool } = internAnswers;
 
   let internCard = `<div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Intern</h5>
+        <h5 class="card-title bggreen">Intern</h5>
         <h3 class="card-title">${internName}</h3>
         <p class="card-text">
         Employee ID: ${internId}
         <br>
-        Email: ${internEmail}
+        Email: <a href="mailto:${internEmail}">${internEmail}</a> 
         <br>
         School: ${internSchool}</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
       </div>`;
 
   employeeArray.push(internCard);
-  console.log(employeeArray);
 
   return employeeArray;
 };
@@ -92,12 +85,13 @@ let generateHTML = () => {
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="./styles.css">
 <title>Document</title>
 </head>
 <body>
 <header>
 <div class="jumbotron jumbotron-fluid">
-  <div class="container">
+  <div class="container bgjumbo">
     <h1 class="display-4">Your Team</h1>
     <p class="lead">Please enjoy these cards with some information of your fine employees.</p>
   </div>

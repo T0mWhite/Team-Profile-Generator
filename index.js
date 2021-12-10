@@ -109,7 +109,7 @@ const internQuestions = [
   {
     type: "input",
     name: "internName",
-    message: "What is the intern's name'?",
+    message: "What is the intern's name?",
   },
   {
     type: "input",
@@ -123,7 +123,7 @@ const internQuestions = [
   },
   {
     type: "input",
-    name: "internGithub",
+    name: "internSchool",
     message: "What school is the intern attending?",
   },
 ];
@@ -133,7 +133,6 @@ generateTeamPage();
 // Prompts user to make a team page
 function generateTeamPage() {
   inquirer.prompt(generateInit).then((initAnswers) => {
-    console.log(initAnswers.initChoice);
     if (initAnswers.initChoice === "End") {
       process.exit();
     }
@@ -153,9 +152,7 @@ function generateManagerInfo() {
 
 // Function asking to add new employee
 async function addNewEmployee() {
-  console.log("Add more employees?");
   await inquirer.prompt(addEmployeeQuestion).then((addEmployeeAnswer) => {
-    console.log(addEmployeeAnswer.addEmployeeType);
     if (addEmployeeAnswer.addEmployeeType === "Yes") {
       generateEmployeeInfo();
     } else {
@@ -166,7 +163,6 @@ async function addNewEmployee() {
 
 // Function asking which type of employee is being added
 function generateEmployeeInfo() {
-  console.log("Generating Employee Info");
   inquirer.prompt(employeeChoiceQuestion).then((employeeAnswer) => {
     console.log(employeeAnswer.employeeType);
     if (employeeAnswer.employeeType === "Engineer") {
@@ -179,7 +175,6 @@ function generateEmployeeInfo() {
 
 // Function asking for engineer's info
 function generateEngineerInfo() {
-  console.log("Generating Engineer Info");
   inquirer.prompt(engineerQuestions).then((engineerAnswers) => {
     generateEngineer(engineerAnswers);
     addNewEmployee();
@@ -188,7 +183,6 @@ function generateEngineerInfo() {
 
 // Function asking for interns's info
 function generateInternInfo() {
-  console.log("Generating Intern Info");
   inquirer.prompt(internQuestions).then((internAnswers) => {
     generateIntern(internAnswers);
     addNewEmployee();
