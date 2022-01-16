@@ -2,7 +2,7 @@
 
   ## Description
   
-A command line application for generating an HTML page for a team. Choices include a manager and unlimited engineers or interns expressed in cards with relavent information.
+A command line application for generating an HTML page for a team. Choices include a manager and unlimited engineers or interns expressed in cards with relevant information.
   
   ## Table of Contents
   
